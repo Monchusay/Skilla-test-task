@@ -27,7 +27,7 @@
 }
 .IconImg {
     width: 18px;
-    padding-left: 20px;
+    margin-left: 20px;
 }
 .NavBarItemText {
     font-size: 18px;
@@ -52,6 +52,9 @@
 .NavBarItem:hover .IsActive {
     display: flex;
 }
+.NavBarItem:hover .IconImg * {
+    fill-opacity: 1;
+}
 .ButtonArea {
     width: 100%;
     display: flex;
@@ -68,9 +71,13 @@
     cursor: pointer;
     color: white;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
     align-items: center;
+}
+.NavBarButton:hover {
+    background-color: #0000F4;
+    transition: 0.5s;
 }
 .NavBarButtonText {
     width: 80%;

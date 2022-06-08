@@ -12,3 +12,113 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/*INFO BAR*/
+.info-select__control {
+  cursor: default !important;
+  font-family: "Source Sans Pro", sans-serif !important;
+  font-size: 15px !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  border-style: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  flex-wrap: wrap !important;
+  outline: 0!important;
+}
+.info-select__control:hover {
+  border-color: transparent !important;
+}
+.info-select__input-container {
+  cursor: default !important;
+  font-family: "Source Sans Pro", sans-serif !important;
+  color: #899CB1 !important;
+}
+.info-select__indicator-separator {
+  display: none !important;
+}
+.info-select__indicator {
+  color: #ADBFDF !important;
+  cursor: pointer !important;
+}
+.info-select__indicator:hover {
+  color: #005FF8 !important;
+}
+.info-select__menu-list {
+  font-family: "Source Sans Pro", sans-serif !important;
+}
+.info-select__single-value {
+  font-family: "Source Sans Pro", sans-serif !important;
+  color: #005FF8 !important;
+}
+.info-select__option {
+  cursor: pointer !important;
+  color: #899CB1 !important;
+}
+.info-select__option:hover {
+  background-color: #ADBFDF !important;
+  color: white !important;
+}
+.info-select__option--is-selected {
+  background-color: #ADBFDF !important;
+  opacity: 0.6;
+  color: white !important;
+}
+/*SORT BAR*/
+.sort-select__control {
+  cursor: pointer !important;
+  font-family: "Source Sans Pro", sans-serif !important;
+  font-size: 13px !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  border-style: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  flex-wrap: wrap !important;
+  outline: 0!important;
+}
+.sort-select__control:hover {
+  border-color: transparent !important;
+}
+.sort-select__input-container {
+  cursor: default !important;
+  font-family: "Source Sans Pro", sans-serif !important;
+  color: #899CB1 !important;
+}
+.sort-select__indicator-separator {
+  display: none !important;
+}
+.sort-select__indicator {
+  color: #ADBFDF !important;
+  cursor: pointer !important;
+}
+.sort-select__indicator:hover {
+  color: #005FF8 !important;
+}
+.sort-select__menu-list {
+  font-family: "Source Sans Pro", sans-serif !important;
+}
+.sort-select__single-value {
+  font-family: "Source Sans Pro", sans-serif !important;
+  color: #005FF8 !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+.sort-select__option {
+  cursor: pointer !important;
+  color: #899CB1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  font-size: 13px !important;
+}
+.sort-select__option:hover {
+  background-color: #ADBFDF !important;
+  color: black !important;
+}
+.sort-select__option--is-selected {
+  background-color: #ADBFDF !important;
+  color: black !important;
+}

@@ -3,5 +3,9 @@
 .App {
     width: 100vw;
     display: flex;
-    background-color: #E5E5E5;
+}
+.MainObj {
+    width: 87%;
+    display: flex;
+    flex-direction: column;
 }

@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./InfoBar.module.css";
-import InfoBarSearch from "../../Usage/InfoBarImages/InfoBarSearch.svg"
-import InfoBarArrow from "../../Usage/InfoBarImages/InfoBarArrow.svg"
-import InfoBarPhoto from "../../Usage/InfoBarImages/InfoBarPhoto.svg"
+import { ReactComponent as InfoBarSearch } from "../../Usage/InfoBarImages/InfoBarSearch.svg";
+import { ReactComponent as InfoBarArrow } from "../../Usage/InfoBarImages/InfoBarArrow.svg";
+import InfoBarPhoto from "../../Usage/InfoBarImages/InfoBarPhoto.svg";
+import Select from "react-select";
+
+const optionsCompany = [
+  { value: "Sidorovna", label: "ИП Сидоровна Александра Михайловна" },
+  { value: "Gruz", label: "ООО Грузчиков Сервис Запад" },
+  { value: "Mitrofanov", label: "ИП Митрофанов М.М." },
+  { value: "Ivanov", label: "ИП Иванов М.М." },
+];
 
 const InfoBar = () => {
   return (
@@ -44,17 +52,19 @@ const InfoBar = () => {
         </div>
       </div>
       <div className={style.SearchButton}>
-          <img src={InfoBarSearch}/>
+        <InfoBarSearch className={style.InfoBarSearch} />
       </div>
       <div className={style.CompanyName}>
-          <span>
-              ИП Сидоровна Александра Михайловна
-          </span>
-          <img src={InfoBarArrow}/>
+        <Select
+          className={style.Select}
+          classNamePrefix="info-select"
+          options={optionsCompany}
+          placeholder="Все компании"
+        />
       </div>
       <div className={style.Profile}>
-          <img src={InfoBarPhoto}/>
-          <img src={InfoBarArrow} className={style.ProfileArrow}/>
+        <img src={InfoBarPhoto} />
+        <InfoBarArrow className={style.ProfileArrow} />
       </div>
     </div>
   );
