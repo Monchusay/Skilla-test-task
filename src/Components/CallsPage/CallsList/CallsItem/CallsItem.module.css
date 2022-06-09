@@ -1,0 +1,6 @@
+.CallsItem {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  border-bottom: 1px solid #EAF0FA;
+}

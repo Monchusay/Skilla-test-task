@@ -1,0 +1,81 @@
+.CallsList {
+    width: 89%;
+    height: 70%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.CallsHeader {
+    width: 90%;
+    height: 70px;
+    border-bottom: 1px solid #EAF0FA;
+    display: flex;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #899CB1;
+    font-size: 16px;
+    cursor: default;
+}
+.CallsHeaderType {
+    width: 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.CallsHeaderTime {
+    width: 7%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.CallsHeaderEmployer {
+    width: 8%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.CallsHeaderCall {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.CallsHeaderSource {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.CallsHeaderGrade {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.CallsHeaderRecord {
+    width: 27%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.CallsHeaderDuration {
+    width: 8%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.CallsItems {
+    width: 89%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
