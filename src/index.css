@@ -122,3 +122,63 @@ code {
   background-color: #ADBFDF !important;
   color: black !important;
 }
+
+/*SORT BAR DAYS*/
+
+.sortDays-select__control {
+  cursor: pointer !important;
+  font-family: "Source Sans Pro", sans-serif !important;
+  font-size: 13px !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  border-style: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  flex-wrap: wrap !important;
+  outline: 0!important;
+}
+.sortDays-select__control:hover {
+  border-color: transparent !important;
+}
+.sortDays-select__input-container {
+  cursor: default !important;
+  font-family: "Source Sans Pro", sans-serif !important;
+  color: #899CB1 !important;
+}
+.sortDays-select__indicator-separator {
+  display: none !important;
+}
+.sortDays-select__indicator {
+  color: #ADBFDF !important;
+  cursor: pointer !important;
+}
+.sortDays-select__indicator:hover {
+  color: #005FF8 !important;
+}
+.sortDays-select__menu-list {
+  font-family: "Source Sans Pro", sans-serif !important;
+}
+.sortDays-select__single-value {
+  font-family: "Source Sans Pro", sans-serif !important;
+  color: #005FF8 !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+.sortDays-select__option {
+  cursor: pointer !important;
+  color: #899CB1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  font-size: 13px !important;
+}
+.sortDays-select__option:hover {
+  background-color: #ADBFDF !important;
+  color: black !important;
+}
+.sortDays-select__option--is-selected {
+  background-color: #ADBFDF !important;
+  color: black !important;
+}

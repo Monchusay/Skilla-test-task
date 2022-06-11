@@ -1,13 +1,13 @@
 import React from "react";
 import style from "./CallsPage.module.css";
-import SortBar from "./SortBar/SortBar";
-import CallsList from "./CallsList/CallsList";
+import CallsListContainer from "./CallsList/CallsListContainer";
+import SortBarContainer from "./SortBar/SortBarContainer";
 
 const CallsPage = () => {
   return (
     <div className={style.CallsPage}>
-      <SortBar />
-      <CallsList />
+      <SortBarContainer />
+      <CallsListContainer />
     </div>
   );
 };

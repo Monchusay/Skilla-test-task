@@ -1,13 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
 import style from "./SortBar.module.css";
 import { ReactComponent as SortBarAccountIcon } from "../../../Usage/SortBarImages/SortBarAccountIcon.svg";
 import { ReactComponent as SortBarArrowLeft } from "../../../Usage/SortBarImages/SortBarArrowLeft.svg";
 import { ReactComponent as SortBarArrowRight } from "../../../Usage/SortBarImages/SortBarArrowRight.svg";
 import { ReactComponent as SortBarCalendarIcon } from "../../../Usage/SortBarImages/SortBarCalendarIcon.svg";
 import { ReactComponent as SortBarSearch } from "../../../Usage/InfoBarImages/InfoBarSearch.svg";
-import { ReactComponent as IncomingCallIcon } from "../../../Usage/SortBarImages/SelectImages/IncomingCallIcon.svg";
-import { ReactComponent as MissedCallIcon } from "../../../Usage/SortBarImages/SelectImages/MissedCallIcon.svg";
 import { ReactComponent as OutgoingCallIcon } from "../../../Usage/SortBarImages/SelectImages/OutgoingCallIcon.svg";
+import { ReactComponent as MissedOutgoingCallIcon } from "../../../Usage/SortBarImages/SelectImages/MissedCallIcon.svg";
+import { ReactComponent as MissedIncomingCallIcon } from "../../../Usage/SortBarImages/SelectImages/MissedIncomingCall.svg";
+import { ReactComponent as IncomingCallIcon } from "../../../Usage/SortBarImages/SelectImages/IncomingCallIcon.svg";
 import { ReactComponent as EmployeeAvatar } from "../../../Usage/SortBarImages/SelectImages/EmployeeAvatar.svg";
 import { ReactComponent as EmployeeAvatar2 } from "../../../Usage/SortBarImages/SelectImages/EmployeeAvatar2.svg";
 import { ReactComponent as EmployeeAvatarMale } from "../../../Usage/SortBarImages/SelectImages/EmployeeAvatar3.svg";
@@ -15,13 +16,24 @@ import { ReactComponent as GradeBad } from "../../../Usage/SortBarImages/SelectI
 import { ReactComponent as GradeGood } from "../../../Usage/SortBarImages/SelectImages/GradeGood.svg";
 import { ReactComponent as GradePerfect } from "../../../Usage/SortBarImages/SelectImages/GradePerfect.svg";
 import Select from "react-select";
+import {format} from "date-fns";
+import {getMillisecondsFromDates} from "../../../Helpers/getMillisecondsFromDates";
+import axios from "axios";
 
 const optionsCallType = [
   { value: "AllCallTypes", label: "Все типы" },
   { value: "Incoming", label: <IncomingCallIcon /> },
   { value: "Outgoing", label: <OutgoingCallIcon /> },
-  { value: "Missed", label: <MissedCallIcon /> },
+  { value: "MissedOutgoing", label: <MissedOutgoingCallIcon /> },
+  { value: "MissedIncoming", label: <MissedIncomingCallIcon /> },
 ];
+const optionsDate = [
+  { value: "3days", label: "3 дня" },
+  { value: "Week", label: "Неделя" },
+  { value: "Month", label: "Месяц" },
+  { value: "Year", label: "Год" }
+];
+
 const optionsEmployers = [
   { value: "AllEmployers", label: "Все сотрудники" },
   {
@@ -74,12 +86,38 @@ const optionsMistakes = [
 ];
 const optionsGrade = [
   { value: "NoScript", label: "Скрипт не использован" },
-  { value: "Greetings", label: <GradeBad className={style.GradeIcon}/> },
+  { value: "Greetings", label: <GradeBad className={style.GradeIcon} /> },
   { value: "Name", label: <GradeGood className={style.GradeIcon} /> },
   { value: "Price", label: <GradePerfect className={style.GradeIcon} /> },
 ];
 
-const SortBar = () => {
+const SortBar = (props) => {
+
+  const onChangeCallType = (value) => {
+    props.filterCallsByType(value)
+  };
+  const onDateChange = (value) => {
+    const todaysDate = new Date().getTime()
+     let mapping =
+         {
+           "3days": 3,
+           "Week": 7,
+           "Month": 31,
+           "Year": 365,
+         }
+      const days = getMillisecondsFromDates(mapping[value])
+      const daysAgo = new Date(
+          todaysDate - days
+      )
+      let startDate = format(daysAgo, "yyyy-MM-dd")
+    axios
+        .post(`https://api.skilla.ru/mango/getList?date_start=${startDate}&limit=400`, null,{headers: {
+            Authorization: "Bearer testtoken"
+          }}).then((response) => {
+      props.setCalls(response.data.results);
+    });
+  }
+
   return (
     <div className={style.SortBar}>
       <div className={style.SortBarFirstRow}>
@@ -90,8 +128,15 @@ const SortBar = () => {
         </div>
         <div className={style.NumberOfDays}>
           <SortBarArrowLeft className={style.SortBarArrowLeft} />
-          <SortBarCalendarIcon className={style.SortBarCalendarIcon} />
-          <span className={style.NumberOfDaysText}>3 дня</span>
+          {/*<SortBarCalendarIcon className={style.SortBarCalendarIcon} />*/}
+          <Select
+              className={style.NumberOfDaysSelector}
+              classNamePrefix="sortDays-select"
+              placeholder="Выбрать дату"
+              options={optionsDate}
+              isSearchable={false}
+              onChange={(date) => onDateChange(date.value)}
+          />
           <SortBarArrowRight className={style.SortBarArrowRight} />
         </div>
       </div>
@@ -107,6 +152,9 @@ const SortBar = () => {
             placeholder="Все типы"
             options={optionsCallType}
             isSearchable={false}
+            onChange={(type) =>
+              onChangeCallType(type.value)
+            }
           />
         </div>
         <div className={style.SortBarElement}>
