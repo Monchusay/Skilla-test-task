@@ -6,7 +6,7 @@ import axios from "axios";
 const CallsList = (props) => {
 
   useEffect(() => {
-    axios.post("https://api.skilla.ru/mango/getList?limit=50", null,{headers: {
+    axios.post("https://api.skilla.ru/mango/getList?limit=30", null,{headers: {
             Authorization: "Bearer testtoken"
         }}).then((response) => {
             console.log(response.data)
@@ -29,6 +29,8 @@ const CallsList = (props) => {
           contact_company={c.contact_company}
           contact_name={c.contact_name}
           from_number={c.from_number}
+          record={c.record}
+          partnership_id={c.partnership_id}
       />
   ))
   return (

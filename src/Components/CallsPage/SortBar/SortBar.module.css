@@ -96,13 +96,24 @@
     color: #5E7793;
 }
 .CallSearch {
-    width: 35%;
+    width: 15%;
     height: 100%;
     display: flex;
     align-items: center;
+    cursor: default;
+}
+.RefreshFilters {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
 }
 .SortBarIcon {
     cursor: pointer;
+    margin-left: 10px;
+    margin-top: 3px;
 }
 .SortBarIcon:hover * {
     fill: #005FF8;

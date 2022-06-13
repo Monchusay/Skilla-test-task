@@ -1,10 +1,18 @@
 import {connect} from "react-redux";
-import {filterByTypeActionCreator, setCallsActionCreator} from "../../../Redux/CallsPageReducer/CallsPageReducer";
+import {
+    filterByGradeActionCreator,
+    filterBySourceActionCreator,
+    filterByTypeActionCreator,
+    setCallsActionCreator
+} from "../../../Redux/CallsPageReducer/CallsPageReducer";
 import SortBar from "./SortBar";
 
 let mapStateToProps = (state) => {
     return {
-        calls: state.CallsPage.calls
+        calls: state.CallsPage.calls,
+        filteredByType: state.CallsPage.filteredByType,
+        filteredBySource: state.CallsPage.filteredBySource,
+        filteredByGrade: state.CallsPage.filteredByGrade
     };
 };
 
@@ -15,6 +23,12 @@ let mapDispatchToProps = (dispatch)=> {
         },
         filterCallsByType: (value) => {
             dispatch(filterByTypeActionCreator(value))
+        },
+        filterCallsBySource: (value) => {
+            dispatch(filterBySourceActionCreator(value))
+        },
+        filterCallsByGrade: (value) => {
+            dispatch(filterByGradeActionCreator(value))
         }
     };
 }
