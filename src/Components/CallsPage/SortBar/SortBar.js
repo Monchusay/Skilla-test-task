@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import style from "./SortBar.module.css";
 import { ReactComponent as SortBarAccountIcon } from "../../../Usage/SortBarImages/SortBarAccountIcon.svg";
 import { ReactComponent as SortBarArrowLeft } from "../../../Usage/SortBarImages/SortBarArrowLeft.svg";
@@ -17,10 +17,9 @@ import { ReactComponent as GradePerfect } from "../../../Usage/SortBarImages/Sel
 import { ReactComponent as RefreshFiltersIcon } from "../../../Usage/SortBarImages/SelectImages/RefreshFiltersIcon.svg";
 
 import Select from "react-select";
-import {format} from "date-fns";
-import {getMillisecondsFromDates} from "../../../Helpers/getMillisecondsFromDates";
+import { format } from "date-fns";
+import { getMillisecondsFromDates } from "../../../Helpers/getMillisecondsFromDates";
 import axios from "axios";
-import App from "../../../App";
 
 const optionsCallType = [
   { value: "AllCallTypes", label: "Все типы" },
@@ -33,7 +32,7 @@ const optionsDate = [
   { value: "3days", label: "3 дня" },
   { value: "Week", label: "Неделя" },
   { value: "Month", label: "Месяц" },
-  { value: "Year", label: "Год" }
+  { value: "Year", label: "Год" },
 ];
 
 const optionsEmployers = [
@@ -87,53 +86,57 @@ const optionsMistakes = [
   { value: "Stop", label: "Стоп-слово" },
 ];
 const optionsGrade = [
-  {value: "AllGrades", label: "Все ошибки"},
+  { value: "AllGrades", label: "Все ошибки" },
   { value: "NoScript", label: "Скрипт не использован" },
   { value: "GradeBad", label: <GradeBad className={style.GradeIcon} /> },
   { value: "GradeGood", label: <GradeGood className={style.GradeIcon} /> },
-  { value: "GradePerfect", label: <GradePerfect className={style.GradeIcon} /> },
+  {
+    value: "GradePerfect",
+    label: <GradePerfect className={style.GradeIcon} />,
+  },
 ];
 
 const SortBar = (props) => {
-
   const onChangeCallType = (value) => {
-    props.filterCallsByType(value)
+    props.filterCallsByType(value);
   };
   const onChangeCallSource = (value) => {
-    props.filterCallsBySource(value)
+    props.filterCallsBySource(value);
   };
   const onChangeCallGrade = (value) => {
-    props.filterCallsByGrade(value)
-  }
+    props.filterCallsByGrade(value);
+  };
 
   const onDateChange = (value) => {
-    const todaysDate = new Date().getTime()
-     let mapping =
-         {
-           "3days": 3,
-           "Week": 7,
-           "Month": 31,
-           "Year": 365,
-         }
-      const days = getMillisecondsFromDates(mapping[value])
-      const daysAgo = new Date(
-          todaysDate - days
-      )
-      let startDate = format(daysAgo, "yyyy-MM-dd")
+    const todaysDate = new Date().getTime();
+    let mapping = {
+      "3days": 3,
+      Week: 7,
+      Month: 31,
+      Year: 365,
+    };
+    const days = getMillisecondsFromDates(mapping[value]);
+    const daysAgo = new Date(todaysDate - days);
+    let startDate = format(daysAgo, "yyyy-MM-dd");
     axios
-        .post(`https://api.skilla.ru/mango/getList?date_start=${startDate}&limit=400`, null,{headers: {
-            Authorization: "Bearer testtoken"
-          }}).then((response) => {
-      props.setCalls(response.data.results);
-      props.filterCallsBySource(props.filteredBySource);
-      props.filterCallsByType(props.filteredByType);
-      props.filterCallsByGrade(props.filteredByGrade);
-    });
-  }
+      .post(
+        `https://api.skilla.ru/mango/getList?date_start=${startDate}&limit=400`,
+        null,
+        {
+          headers: {
+            Authorization: "Bearer testtoken",
+          },
+        }
+      )
+      .then((response) => {
+        props.setCalls(response.data.results);
+        props.filterCallsByType(props.filteredByType);
+      });
+  };
   const refreshPage = () => {
-    console.log("refresh")
-    window.location.reload()
-  }
+    console.log("refresh");
+    window.location.reload();
+  };
 
   return (
     <div className={style.SortBar}>
@@ -146,12 +149,12 @@ const SortBar = (props) => {
         <div className={style.NumberOfDays}>
           <SortBarArrowLeft className={style.SortBarArrowLeft} />
           <Select
-              className={style.NumberOfDaysSelector}
-              classNamePrefix="sortDays-select"
-              placeholder="Выбрать дату"
-              options={optionsDate}
-              isSearchable={false}
-              onChange={(date) => onDateChange(date.value)}
+            className={style.NumberOfDaysSelector}
+            classNamePrefix="sortDays-select"
+            placeholder="Выбрать дату"
+            options={optionsDate}
+            isSearchable={false}
+            onChange={(date) => onDateChange(date.value)}
           />
           <SortBarArrowRight className={style.SortBarArrowRight} />
         </div>
@@ -162,10 +165,11 @@ const SortBar = (props) => {
           <span className={style.CallSearchText}>Поиск по звонкам</span>
         </div>
         <div className={style.RefreshFilters}>
-          <span>
-            Сбросить фильтры
-          </span>
-          <RefreshFiltersIcon onClick={refreshPage} className={style.SortBarIcon}/>
+          <span>Сбросить фильтры</span>
+          <RefreshFiltersIcon
+            onClick={refreshPage}
+            className={style.SortBarIcon}
+          />
         </div>
         <div className={style.SortBarElement}>
           <Select
@@ -174,9 +178,7 @@ const SortBar = (props) => {
             placeholder="Все типы"
             options={optionsCallType}
             isSearchable={false}
-            onChange={(type) =>
-              onChangeCallType(type.value)
-            }
+            onChange={(type) => onChangeCallType(type.value)}
           />
         </div>
         <div className={style.SortBarElement}>
@@ -204,9 +206,7 @@ const SortBar = (props) => {
             placeholder="Все источники"
             options={optionsSources}
             isSearchable={false}
-            onChange={(type) =>
-                onChangeCallSource(type.value)
-            }
+            onChange={(type) => onChangeCallSource(type.value)}
           />
         </div>
         <div className={style.SortBarElement}>
@@ -216,9 +216,7 @@ const SortBar = (props) => {
             placeholder="Все оценки"
             options={optionsGrade}
             isSearchable={false}
-            onChange={(type) =>
-                onChangeCallGrade(type.value)
-            }
+            onChange={(type) => onChangeCallGrade(type.value)}
           />
         </div>
         <div className={style.SortBarElement}>

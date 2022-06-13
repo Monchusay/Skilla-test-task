@@ -71,9 +71,7 @@ const CallsItem = (props) => {
           },
         }
       )
-      .then((response) => {
-
-      });
+      .then((response) => {});
   };
 
   const whilePlaying = () => {
@@ -123,9 +121,7 @@ const CallsItem = (props) => {
               src={require("../../../../Usage/SortBarImages/SelectImages/RandomSong.mp3")}
               preload="Metadata"
             />
-            <div>
-              {calculateTime(duration)}
-            </div>
+            <div>{calculateTime(duration)}</div>
             <button
               onClick={togglePlayPause}
               className={style.RecordIconContainer}
