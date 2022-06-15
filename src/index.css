@@ -14,9 +14,9 @@ code {
 }
 /*INFO BAR*/
 .info-select__control {
-  cursor: default !important;
+  cursor: pointer !important;
   font-family: "Source Sans Pro", sans-serif !important;
-  font-size: 15px !important;
+  font-size: 14px !important;
   background-color: transparent !important;
   border-color: transparent !important;
   border-radius: 0 !important;
@@ -30,7 +30,7 @@ code {
   border-color: transparent !important;
 }
 .info-select__input-container {
-  cursor: default !important;
+  cursor: pointer !important;
   font-family: "Source Sans Pro", sans-serif !important;
   color: #899CB1 !important;
 }
@@ -46,6 +46,7 @@ code {
 }
 .info-select__menu-list {
   font-family: "Source Sans Pro", sans-serif !important;
+  font-size: 14px !important;
 }
 .info-select__single-value {
   font-family: "Source Sans Pro", sans-serif !important;

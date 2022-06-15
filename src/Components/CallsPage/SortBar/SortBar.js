@@ -120,7 +120,7 @@ const SortBar = (props) => {
     let startDate = format(daysAgo, "yyyy-MM-dd");
     axios
       .post(
-        `https://api.skilla.ru/mango/getList?date_start=${startDate}&limit=400`,
+        `https://api.skilla.ru/mango/getList?date_start=${startDate}&limit=500`,
         null,
         {
           headers: {

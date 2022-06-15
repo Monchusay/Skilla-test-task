@@ -3,9 +3,11 @@
 .App {
     width: 1865px;
     display: flex;
+    min-height: 1600px;
 }
 .MainObj {
     width: 87%;
+    min-height: 1600px;
     display: flex;
     flex-direction: column;
 }

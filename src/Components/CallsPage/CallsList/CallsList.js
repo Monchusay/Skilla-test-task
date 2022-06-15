@@ -48,7 +48,9 @@ const CallsList = (props) => {
         <span className={style.CallsHeaderRecord}>Запись звонка</span>
         <span className={style.CallsHeaderDuration}>Длительность (sec)</span>
       </div>
-      <div className={style.CallsItems}>{CallElement}</div>
+      <div className={style.CallsListItems}>
+        <div className={style.CallsItems}>{CallElement}</div>
+      </div>
     </div>
   );
 };
