@@ -4,6 +4,7 @@
   display: flex;
   border-bottom: 1px solid #EAF0FA;
   font-family: 'Source Sans Pro', sans-serif;
+  cursor: default;
 }
 .CallType {
   width: 4%;
@@ -26,6 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .CallNumber {
   width: 24%;
@@ -38,19 +40,11 @@
 }
 .CallNumberContact {
   width: 100%;
-  height: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-.PartnerName {
-  font-size: 15px;
-  color: #122945;
-}
-.PartnerPhone {
-  font-size: 15px;
-  color: #5E7793;
+  margin-bottom: 5px;
 }
 .CallSource {
   width: 8%;
@@ -60,6 +54,7 @@
   justify-content: center;
   font-size: 16px;
   cursor: default;
+  color: #5E7793;
 }
 .CallGrade {
   width: 15%;

@@ -96,18 +96,80 @@
     color: #5E7793;
 }
 .CallSearch {
-    width: 15%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    cursor: default;
-}
-.RefreshFilters {
-    width: 20%;
+    width: 25%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: default;
+    position: relative;
+}
+.CallSearchInput {
+    width: 295px;
+    height: 25px;
+    border-radius: 20px;
+    background: inherit;
+    cursor: pointer;
+    padding-left: 35px;
+    border: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #122945;
+    padding-bottom: 5px;
+}
+.CallSearchInput::placeholder {
+    letter-spacing: 0px;
+    font-size: 14px;
+    color: #5E7793;
+}
+.CallSearchInput:focus-visible {
+    background: white;
+    outline-color: #005FF8;
+}
+.CallSearchIcon {
+    position: absolute;
+    left: 20px;
+    cursor: pointer;
+}
+.CallSearchRefreshIcon {
+    position: absolute;
+    right: 25px;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+.CallSearchRefreshIcon:hover *{
+    fill: #005FF8;
+    transition: 0.3s;
+}
+.CallSearch:hover .CallSearchIcon *{
+    fill: #005FF8;
+    transition: 0.3s;
+}
+.RefreshFilters {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 14px;
+}
+.RefreshFiltersIcon {
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 2px;
+    width: 12px;
+    height: 12px;
+}
+.RefreshFilters:hover {
+    color: #005FF8;
+}
+.RefreshFilters:hover .RefreshFiltersIcon * {
+    fill: #005FF8;
+    transition: 0.3s;
 }
 .SortBarIcon {
     cursor: pointer;

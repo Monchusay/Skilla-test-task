@@ -29,6 +29,21 @@ code {
 .info-select__control:hover {
   border-color: transparent !important;
 }
+.info-select__control:hover .info-select__indicator {
+  color: #005FF8 !important;
+}
+.info-select__placeholder {
+  color: #5E7793 !important;
+}
+.info-select__control:hover .info-select__placeholder {
+  color: #005FF8 !important;
+}
+.info-select__control--menu-is-open .info-select__indicator {
+  color: #005FF8 !important;
+}
+.info-select__control--menu-is-open .info-select__placeholder {
+  color: #005FF8 !important;
+}
 .info-select__input-container {
   cursor: pointer !important;
   font-family: "Source Sans Pro", sans-serif !important;
@@ -40,9 +55,6 @@ code {
 .info-select__indicator {
   color: #ADBFDF !important;
   cursor: pointer !important;
-}
-.info-select__indicator:hover {
-  color: #005FF8 !important;
 }
 .info-select__menu-list {
   font-family: "Source Sans Pro", sans-serif !important;
@@ -82,10 +94,24 @@ code {
 .sort-select__control:hover {
   border-color: transparent !important;
 }
+.sort-select__control:hover .sort-select__indicator {
+  color: #005FF8 !important;
+}
+.sort-select__placeholder {
+  color: #5E7793 !important;
+}
+.sort-select__control:hover .sort-select__placeholder {
+  color: #005FF8 !important;
+}
+.sort-select__control--menu-is-open .sort-select__indicator {
+  color: #005FF8 !important;
+}
+.sort-select__control--menu-is-open .sort-select__placeholder {
+  color: #005FF8 !important;
+}
 .sort-select__input-container {
   cursor: default !important;
   font-family: "Source Sans Pro", sans-serif !important;
-  color: #899CB1 !important;
 }
 .sort-select__indicator-separator {
   display: none !important;
@@ -93,9 +119,6 @@ code {
 .sort-select__indicator {
   color: #ADBFDF !important;
   cursor: pointer !important;
-}
-.sort-select__indicator:hover {
-  color: #005FF8 !important;
 }
 .sort-select__menu-list {
   font-family: "Source Sans Pro", sans-serif !important;
@@ -113,19 +136,18 @@ code {
   display: flex !important;
   align-items: center !important;
   justify-content: flex-start !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
 }
 .sort-select__option:hover {
-  background-color: #ADBFDF !important;
-  color: black !important;
+  background-color: rgb(216, 228, 242) !important;
+  color: #122945 !important;
 }
 .sort-select__option--is-selected {
-  background-color: #ADBFDF !important;
-  color: black !important;
+  background-color: white !important;
+  color: #005FF8 !important;
 }
 
 /*SORT BAR DAYS*/
-
 .sortDays-select__control {
   cursor: pointer !important;
   font-family: "Source Sans Pro", sans-serif !important;
@@ -142,6 +164,21 @@ code {
 .sortDays-select__control:hover {
   border-color: transparent !important;
 }
+.sortDays-select__control:hover .sortDays-select__indicator{
+  color: #005FF8 !important;
+}
+.sortDays-select__placeholder {
+  color: #5E7793 !important;
+}
+.sortDays-select__control:hover .sortDays-select__placeholder {
+  color: #005FF8 !important;
+}
+.sortDays-select--menu-is-open .sortDays-select__indicator {
+  color: #005FF8 !important;
+}
+.sortDays-select__control--menu-is-open .sortDays-select__placeholder {
+  color: #005FF8 !important;
+}
 .sortDays-select__input-container {
   cursor: default !important;
   font-family: "Source Sans Pro", sans-serif !important;
@@ -153,9 +190,6 @@ code {
 .sortDays-select__indicator {
   color: #ADBFDF !important;
   cursor: pointer !important;
-}
-.sortDays-select__indicator:hover {
-  color: #005FF8 !important;
 }
 .sortDays-select__menu-list {
   font-family: "Source Sans Pro", sans-serif !important;

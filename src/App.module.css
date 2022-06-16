@@ -4,6 +4,7 @@
     width: 1865px;
     display: flex;
     min-height: 1600px;
+    position: relative;
 }
 .MainObj {
     width: 87%;

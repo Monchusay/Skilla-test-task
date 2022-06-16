@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./SortBar.module.css";
 import { ReactComponent as SortBarAccountIcon } from "../../../Usage/SortBarImages/SortBarAccountIcon.svg";
 import { ReactComponent as SortBarArrowLeft } from "../../../Usage/SortBarImages/SortBarArrowLeft.svg";
@@ -97,6 +97,9 @@ const optionsGrade = [
 ];
 
 const SortBar = (props) => {
+
+  const [callSearch, setCallSearch] = useState("");
+
   const onChangeCallType = (value) => {
     props.filterCallsByType(value);
   };
@@ -137,7 +140,12 @@ const SortBar = (props) => {
     console.log("refresh");
     window.location.reload();
   };
-
+  const onCallSearch = (e) => {
+    setCallSearch(e.target.value);
+  };
+  const onCallSearchRefresh = () => {
+    setCallSearch("");
+}
   return (
     <div className={style.SortBar}>
       <div className={style.SortBarFirstRow}>
@@ -161,15 +169,19 @@ const SortBar = (props) => {
       </div>
       <div className={style.SortBarSecondRow}>
         <div className={style.CallSearch}>
-          <SortBarSearch className={style.SortBarIcon} />
-          <span className={style.CallSearchText}>Поиск по звонкам</span>
-        </div>
-        <div className={style.RefreshFilters}>
-          <span>Сбросить фильтры</span>
-          <RefreshFiltersIcon
-            onClick={refreshPage}
-            className={style.SortBarIcon}
+          <SortBarSearch className={style.CallSearchIcon} />
+          <input
+            className={style.CallSearchInput}
+            placeholder="Поиск по звонкам"
+            value={callSearch}
+            onChange={onCallSearch}
           />
+          {callSearch.length === 0 ? null :
+          <RefreshFiltersIcon onClick={onCallSearchRefresh} className={style.CallSearchRefreshIcon}/>}
+        </div>
+        <div onClick={refreshPage} className={style.RefreshFilters}>
+          <span>Сбросить фильтры</span>
+          <RefreshFiltersIcon className={style.RefreshFiltersIcon} />
         </div>
         <div className={style.SortBarElement}>
           <Select
