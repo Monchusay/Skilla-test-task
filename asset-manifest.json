@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Skilla-test-task/static/css/main.3ccd01e1.css",
+    "main.css": "/Skilla-test-task/static/css/main.69df6cf8.css",
     "main.js": "/Skilla-test-task/static/js/main.33f6d158.js",
     "static/js/787.a673ac92.chunk.js": "/Skilla-test-task/static/js/787.a673ac92.chunk.js",
     "static/media/EmployeeAvatar.svg": "/Skilla-test-task/static/media/EmployeeAvatar.9b2fb02283e944e96d45a152163314c8.svg",
@@ -46,12 +46,12 @@
     "static/media/SortBarArrowLeft.svg": "/Skilla-test-task/static/media/SortBarArrowLeft.f850d09f95c068c3ac075947e271ffac.svg",
     "static/media/PauseRecordIcon.svg": "/Skilla-test-task/static/media/PauseRecordIcon.6d4e391bfcb07bd0f3774b7ef802afb8.svg",
     "static/media/ProfileDot.svg": "/Skilla-test-task/static/media/ProfileDot.c5353248f857261bd5384e0c5fc3bf3f.svg",
-    "main.3ccd01e1.css.map": "/Skilla-test-task/static/css/main.3ccd01e1.css.map",
+    "main.69df6cf8.css.map": "/Skilla-test-task/static/css/main.69df6cf8.css.map",
     "main.33f6d158.js.map": "/Skilla-test-task/static/js/main.33f6d158.js.map",
     "787.a673ac92.chunk.js.map": "/Skilla-test-task/static/js/787.a673ac92.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3ccd01e1.css",
+    "static/css/main.69df6cf8.css",
     "static/js/main.33f6d158.js"
   ]
 }
