@@ -130,7 +130,6 @@
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   position: absolute;
-  z-index: 2;
   cursor: pointer;
 }
 .RecordSlider::-webkit-slider-thumb {
@@ -142,7 +141,6 @@
   background-color: var(--knabby);
   cursor: pointer;
   position: relative;
-  z-index: 3;
   box-sizing: border-box;
 }
 .RecordSlider:active::-webkit-slider-thumb {

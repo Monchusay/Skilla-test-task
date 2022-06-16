@@ -122,6 +122,7 @@ code {
 }
 .sort-select__menu-list {
   font-family: "Source Sans Pro", sans-serif !important;
+  z-index: 4 !important;
 }
 .sort-select__single-value {
   font-family: "Source Sans Pro", sans-serif !important;
