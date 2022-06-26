@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import CallsList from "./CallsList";
-import {setCallsActionCreator} from "../../../Redux/CallsPageReducer/CallsPageReducer";
+import {setCallsToolkitActionCreator} from "../../../Redux/CallsPageReducer/CallsPageSlicer";
 
 let mapStateToProps = (state) => {
     return {
@@ -11,7 +11,7 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch)=> {
     return {
         setCalls: (calls) => {
-            dispatch(setCallsActionCreator(calls))
+            dispatch(setCallsToolkitActionCreator(calls))
         }
     };
 }

@@ -1,22 +1,24 @@
-let initialState = {
-  allCalls: [],
-  calls: [],
-  filteredByType: null,
-  filteredBySource: null,
-  filteredByGrade: null,
-};
+import { createSlice } from "@reduxjs/toolkit";
 
-const CallsPageReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "SET_CALLS": {
+const CallsPageSlicer = createSlice({
+  name: "CallsPage",
+  initialState: {
+    allCalls: [],
+    calls: [],
+    filteredByType: null,
+    filteredBySource: null,
+    filteredByGrade: null,
+  },
+  reducers: {
+    setCallsToolkitActionCreator(state, action) {
       return {
         ...state,
-        calls: [...action.calls],
-        allCalls: [...action.calls],
+        calls: [...action.payload],
+        allCalls: [...action.payload],
       };
-    }
-    case "FILTER_BY_TYPE": {
-      if (action.value === "AllCallTypes") {
+    },
+    filterByTypeToolkitActionCreator(state, action) {
+      if (action.payload === "AllCallTypes") {
         return { ...state, calls: state.allCalls, filteredByType: null };
       }
       let mappingType = {
@@ -39,17 +41,17 @@ const CallsPageReducer = (state = initialState, action) => {
       };
       let filteredTypeCalls = state.allCalls.filter(
         (call) =>
-          call.in_out === mappingType[action.value].in_out &&
-          call.status === mappingType[action.value].status
+          call.in_out === mappingType[action.payload].in_out &&
+          call.status === mappingType[action.payload].status
       );
       return {
         ...state,
         calls: filteredTypeCalls,
-        filteredByType: action.value,
+        filteredByType: action.payload,
       };
-    }
-    case "FILTER_BY_SOURCE": {
-      if (action.value === "AllSources") {
+    },
+    filterBySourceToolkitActionCreator(state, action) {
+      if (action.payload === "AllSources") {
         return { ...state, calls: state.allCalls, filteredBySource: null };
       }
       let mappingSource = {
@@ -70,16 +72,16 @@ const CallsPageReducer = (state = initialState, action) => {
         },
       };
       let filteredSourceCalls = state.allCalls.filter(
-        (call) => call.source === mappingSource[action.value].source
+        (call) => call.source === mappingSource[action.payload].source
       );
       return {
         ...state,
         calls: filteredSourceCalls,
-        filteredBySource: action.value,
+        filteredBySource: action.payload,
       };
-    }
-    case "FILTER_BY_GRADE": {
-      if (action.value === "AllGrades") {
+    },
+    filterByGradeToolkitActionCreator(state, action) {
+      if (action.payload === "AllGrades") {
         return { ...state, calls: state.allCalls, filteredByGrade: null };
       }
       let mappingGrade = {
@@ -91,41 +93,21 @@ const CallsPageReducer = (state = initialState, action) => {
         },
       };
       let filteredGradeCalls = state.allCalls.filter(
-        (call) => call.errors.length === mappingGrade[action.value].length
+        (call) => call.errors.length === mappingGrade[action.payload].length
       );
       return {
         ...state,
         calls: filteredGradeCalls,
-        filteredByGrade: action.value,
+        filteredByGrade: action.payload,
       };
-    }
-  }
-  return state;
-};
+    },
+  },
+});
 
-export const setCallsActionCreator = (calls) => {
-  return {
-    type: "SET_CALLS",
-    calls: calls,
-  };
-};
-export const filterByTypeActionCreator = (value) => {
-  return {
-    type: "FILTER_BY_TYPE",
-    value: value,
-  };
-};
-export const filterBySourceActionCreator = (value) => {
-  return {
-    type: "FILTER_BY_SOURCE",
-    value: value,
-  };
-};
-export const filterByGradeActionCreator = (value) => {
-  return {
-    type: "FILTER_BY_GRADE",
-    value: value,
-  };
-};
-
-/*export default CallsPageReducer;*/
+export default CallsPageSlicer.reducer;
+export const {
+  setCallsToolkitActionCreator,
+  filterByTypeToolkitActionCreator,
+  filterBySourceToolkitActionCreator,
+  filterByGradeToolkitActionCreator,
+} = CallsPageSlicer.actions;
