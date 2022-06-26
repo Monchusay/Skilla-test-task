@@ -1,21 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import style from "./CallsList.module.css";
 import CallsItem from "./CallsItem/CallsItem";
-import axios from "axios";
 
 const CallsList = (props) => {
-  useEffect(() => {
-    axios
-      .post("https://api.skilla.ru/mango/getList?limit=30", null, {
-        headers: {
-          Authorization: "Bearer testtoken",
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-        props.setCalls(response.data.results);
-      });
-  }, []);
 
   let CallElement = props.calls.map((c) => (
     <CallsItem

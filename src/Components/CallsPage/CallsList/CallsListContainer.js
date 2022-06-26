@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
-import CallsList from "./CallsList";
 import {setCallsToolkitActionCreator} from "../../../Redux/CallsPageReducer/CallsPageSlicer";
+import CallsListAPIContainer from "./CallsListAPIContainer";
 
 let mapStateToProps = (state) => {
     return {
@@ -16,6 +16,6 @@ let mapDispatchToProps = (dispatch)=> {
     };
 }
 
-const CallsListContainer = connect(mapStateToProps, mapDispatchToProps)(CallsList)
+const CallsListContainer = connect(mapStateToProps, mapDispatchToProps)(CallsListAPIContainer)
 
 export default CallsListContainer
